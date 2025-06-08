@@ -10,7 +10,9 @@ import { IngestionModule } from './ingestion/ingestion.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/nest-backend'),
+    MongooseModule.forRoot('mongodb://localhost:27017/nest_auth_demo', {
+    
+    }),
     AuthModule,
     UsersModule,
     DocumentsModule,
