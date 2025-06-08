@@ -23,6 +23,7 @@ import {
     @Post()
     @UseInterceptors(FileInterceptor('file'))
     async upload(@UploadedFile() file: Express.Multer.File, @Body() dto: CreateDocumentDto) {
+        console.log("File received:", file);
       return this.documentsService.create(dto, file);
     }
   

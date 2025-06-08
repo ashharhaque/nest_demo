@@ -11,8 +11,13 @@ export class DocumentsService {
   ) {}
 
   async create(dto: CreateDocumentDto, file: Express.Multer.File) {
-    const fileUrl = `/uploads/${file.filename}`;
-    return this.documentModel.create({ ...dto, fileUrl });
+    try{
+        const fileUrl = `/uploads/${file.filename}`;
+        return this.documentModel.create({ ...dto, fileUrl });
+    }catch(err){
+     console.log("err in file upload", err);
+    }
+   
   }
 
   async findOne(id: string) {
