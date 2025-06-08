@@ -18,4 +18,7 @@ export class UsersService {
   assignRole({ username, role }: { username: string; role: string }) {
     return this.userModel.findOneAndUpdate({ username }, { role }, { new: true });
   }
+  findAll() {
+    return this.userModel.find();
+  }
 }
