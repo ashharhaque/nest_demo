@@ -1,20 +1,15 @@
-// src/app.module.ts
+// users/users.module.ts
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { DocumentsModule } from './documents/documents.module';
-import { IngestionModule } from './ingestion/ingestion.module';
+import { UsersService } from './users/users.service';
+import { UsersController } from './users/users.controller';
+import { User, UserSchema } from './users/entity/user.schema';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/nest-backend'),
-    AuthModule,
-    UsersModule,
-    DocumentsModule,
-    IngestionModule,
+    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
   ],
+  controllers: [UsersController],
+  providers: [UsersService],
 })
-export class AppModule {}
+export class UsersModule {}
