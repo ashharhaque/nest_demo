@@ -19,6 +19,12 @@ export class UsersService {
     return this.userModel.findOneAndUpdate({ username }, { role }, { new: true });
   }
   findAll() {
-    return this.userModel.find();
+    try{
+        console.log("inside all users")
+        return this.userModel.find();
+
+    }catch(err){
+        console.log("err in find users",err)
+    }
   }
 }
