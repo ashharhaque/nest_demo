@@ -14,3 +14,12 @@
 # hosting platform 
 
  railway
+
+ # node version 
+  18.19
+
+# nest version 
+ 10
+
+# domain on which application is hosted 
+ https://nestdemo-production.up.railway.app
