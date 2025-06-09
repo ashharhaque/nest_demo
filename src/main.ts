@@ -18,7 +18,7 @@ async function bootstrap() {
     console.warn('[MongoDB] ⚠️ Disconnected from MongoDB');
   });
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 5000);
   console.log('application is running on port 3000');
 }
 bootstrap();
